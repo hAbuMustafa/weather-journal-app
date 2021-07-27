@@ -1,8 +1,7 @@
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
+projectData = { temperature, date, userResponse };
 
 // Require Express to run server and routes
-let n = 0;
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -35,6 +34,10 @@ app.get("/getRecent", (request, response) => {
 
 app.post("/postRecent", (request, response) => {
   /* TODO: take temperature, date, user response*/
-  projectData[`${n}`] = request.body;
-  n++;
+  const postedData = request.body;
+  projectData.temperature = postedData.temperature;
+  projectData.date = postedData.date;
+  projectData.userResponse = postedData.userResponse;
+
+  response.send("Post successful");
 });
