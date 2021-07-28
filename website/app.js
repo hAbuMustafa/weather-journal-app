@@ -22,7 +22,7 @@ async function buttonClicked(e) {
       getSavedData("/getRecent");
     });
   });
-  tempArea.innerHTML = mainData.temperature;
+  tempArea.innerHTML = mainData.temperature + " \u2103";
   dateArea.innerHTML = mainData.date;
   contentArea.innerHTML = mainData.userResponse;
 }
@@ -42,8 +42,8 @@ const getWeather = async (zipCode, baseURL, apiKey) => {
   }
 };
 
-const getSavedData = async (rout) => {
-  const request = await fetch(rout);
+const getSavedData = async (route) => {
+  const request = await fetch(route);
 
   try {
     const newData = request.json();
@@ -54,8 +54,8 @@ const getSavedData = async (rout) => {
   }
 };
 
-const postFetchedData = async (rout, data) => {
-  const response = await fetch(rout, {
+const postFetchedData = async (route, data) => {
+  const response = await fetch(route, {
     method: "POST",
     credentials: "same-origin",
     headers: {
