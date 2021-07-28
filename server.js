@@ -1,5 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
-projectData = { temperature, date, userResponse };
+projectData = { temperature: 0, date: "", userResponse: "" };
 
 // Require Express to run server and routes
 const express = require("express");
@@ -22,7 +22,7 @@ app.use(express.static("website"));
 
 // Setup Server
 const port = 8080;
-const server = app.listen(port, () => {
+app.listen(port, () => {
   console.log(
     `Server running on port ${port}. Check it out at http://localhost:${port}/`
   );
